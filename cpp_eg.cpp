@@ -29,6 +29,8 @@ struct State
     uint64_t            partial_sum[THREAD_CNT_MAX];
 };
 
+// this gets executed by each thread; it is called by threads_parallelize()
+//
 void sumThread( uint32_t tid, uint32_t thr_cnt, void * arg )
 {
     State * s = reinterpret_cast<State *>( arg );
@@ -102,7 +104,7 @@ int main( int argc, const char * argv[] )
     s.byte_cnt = byte_cnt;
     s.bytes = bytes;
 
-    // this does not return until all thread_cnt threads have finished
+    // this will not return until all thread_cnt threads have finished executing sumThread()
     thread_parallelize( thread_cnt, sumThread, &s ); 
 
     // add up partial sums

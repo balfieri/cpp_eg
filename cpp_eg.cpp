@@ -92,7 +92,7 @@ int main( int argc, const char * argv[] )
     }
     real64 end = clock_time();
     real64 elapsed = end - begin;
-    std::cout << "sum=" << sum << " elapsed=" << elapsed << "\n";
+    std::cout << "sum=" << sum << " elapsed=" << elapsed << " secs\n";
 
     //--------------------------------------------------------------
     // Add up the bytes using thread_cnt threads.
@@ -114,7 +114,7 @@ int main( int argc, const char * argv[] )
     }
     end = clock_time();
     real64 telapsed = end - begin;
-    std::cout << "sum=" << tsum << " elapsed=" << telapsed << "\n";
+    std::cout << "sum=" << tsum << " elapsed=" << telapsed << " secs\n";
     dassert( tsum == sum, "threaded sum != non-threaded sum" );
 
     real speedup = real(elapsed) / real(telapsed);

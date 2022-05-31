@@ -80,7 +80,7 @@ int main( int argc, const char * argv[] )
     uint8_t * bytes = new uint8_t[byte_cnt];
     for( uint64_t i = 0; i < byte_cnt; i++ )
     {
-        bytes[i] = i;           // could also call rand_n( 256 ) for a random byte, but slower
+        bytes[i] = i & 0xff;    // could also call rand_n( 256 ) for a random byte, but slower
     }
 
     //--------------------------------------------------------------
@@ -120,8 +120,7 @@ int main( int argc, const char * argv[] )
     std::cout << "sum=" << tsum << " elapsed=" << telapsed << " secs\n";
     dassert( tsum == sum, "threaded sum != non-threaded sum" );
 
-    real speedup = real(elapsed) / real(telapsed);
-    std::cout << "\nSpeedup=" << speedup << "x\n";
+    std::cout << "\nSpeedup=" << (elapsed/telapsed) << "x\n";
 
     return 0;
 }

@@ -92,7 +92,6 @@ int main( int argc, const char * argv[] )
     }
     real64 end = clock_time();
     real64 elapsed = end - begin;
-    //std::cout << "begin=" << begin << " end=" << end << " elapsed=" << elapsed << "\n";
     std::cout << "sum=" << sum << " elapsed=" << elapsed << "\n";
 
     //--------------------------------------------------------------

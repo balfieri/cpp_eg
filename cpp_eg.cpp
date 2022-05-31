@@ -107,6 +107,9 @@ int main( int argc, const char * argv[] )
     s.bytes = bytes;
 
     // this will not return until all thread_cnt threads have finished executing sumThread()
+    // The pointer to s will get passed into sumThread as an opaque pointer
+    // (that's so that thread_parallelize() doesn't need to know about State).
+    //
     thread_parallelize( thread_cnt, sumThread, &s ); 
 
     // add up partial sums

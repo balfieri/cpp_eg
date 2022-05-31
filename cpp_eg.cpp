@@ -29,16 +29,19 @@ struct State
     uint64_t            partial_sum[THREAD_CNT_MAX];
 };
 
-// this gets executed by each thread; it is called by threads_parallelize()
+// this gets executed by each thread; it is called by thread_parallelize()
+//     tid     == my thread id (0 .. thr_cnt-1)
+//     thr_cnt == thread count
+//     arg     == opaque pointer to State struct (thread_parallelize() requires an opaque ptr to be general)
 //
 void sumThread( uint32_t tid, uint32_t thr_cnt, void * arg )
 {
-    State * s = reinterpret_cast<State *>( arg );
+    State * s = reinterpret_cast<State *>( arg );  // get a non-opaque pointer
 
     // figure out range of bytes this thread should add up
     //
     uint64_t bytes_per_thread = s->byte_cnt / thr_cnt;
-    uint64_t start_i = bytes_per_thread * tid;          // tid == my thread id
+    uint64_t start_i = bytes_per_thread * tid;          
     uint64_t end_i   = (tid == (thr_cnt-1)) ? (s->byte_cnt-1) : (start_i + bytes_per_thread-1);
 
     uint64_t psum = 0;

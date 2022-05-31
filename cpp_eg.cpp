@@ -54,7 +54,7 @@ int main( int argc, const char * argv[] )
 {
     // set defaults here
     uint32_t seed               = 0xcafebabe;
-    uint32_t thread_cnt         = thread_hardware_thread_cnt();         // default HW thread cnt
+    uint32_t thread_cnt         = thread_hardware_thread_cnt();   // actual number of CPU HW threads
 
     //--------------------------------------------------------------
     // Parse Arguments
@@ -67,7 +67,7 @@ int main( int argc, const char * argv[] )
         } else if ( arg == "-thread_cnt" ) {                    thread_cnt = std::stoi( argv[++i] );
         } else {                                                die( "unknown option: " + arg ); }
     }
-    rand_thread_seed( seed );
+    rand_thread_seed( seed );   // needed only if random numbers are used (currently not)
 
     //--------------------------------------------------------------
     // Fill a 1,000,000,000 long array with increasing byte values (uint8_t).

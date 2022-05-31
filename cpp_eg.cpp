@@ -83,7 +83,7 @@ int main( int argc, const char * argv[] )
     //--------------------------------------------------------------
     // Add up the bytes using one thread.
     //--------------------------------------------------------------
-    std::cout << "\nAdding bytes using one thread...\n";
+    std::cout << "\nAdding bytes using 1 thread...\n";
     real64 begin = clock_time();
     uint64_t sum = 0;
     for( uint32_t i = 0; i < byte_cnt; i++ )

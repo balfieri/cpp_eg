@@ -23,8 +23,8 @@ endif
 
 DEPS=Makefile *.h
 
-eg: eg.cpp ${DEPS}
-	$(GPP) $(FLAGS) $(EXTRA_CFLAGS) -o eg eg.cpp $(LIBS)
+cpp_eg: cpp_eg.cpp ${DEPS}
+	$(GPP) $(FLAGS) $(EXTRA_CFLAGS) -o cpp_eg cpp_eg.cpp $(LIBS)
 
 clean:
-	rm -fr eg *.o *.dSYM *.out
+	rm -fr cpp_eg *.o *.dSYM *.out

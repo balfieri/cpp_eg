@@ -1,5 +1,5 @@
 .DS_Store
-eg
+cpp_eg
 *.o
 *.dSYM
 *.out

@@ -1,8 +1,8 @@
 Example of C++ program with multithreading. 
 
-This should work on macOS, CygWin (must installed on Windows with g++ and make), and Linux:
+This should work on macOS, CygWin (must be installed on Windows with g++, make, and git), and Linux:
 
-To build and run cpp_eg.cpp:
+To build and run cpp_eg.cpp after cloning this repo:
 
 ```
 make

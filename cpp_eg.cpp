@@ -78,7 +78,7 @@ int main( int argc, const char * argv[] )
     const uint64_t byte_cnt = 1000000000;
     std::cout << "Initializing " << byte_cnt << " bytes...\n";
     uint8_t * bytes = new uint8_t[byte_cnt];
-    for( uint32_t i = 0; i < byte_cnt; i++ )
+    for( uint64_t i = 0; i < byte_cnt; i++ )
     {
         bytes[i] = i;           // could also call rand_n( 256 ) for a random byte, but slower
     }
@@ -89,7 +89,7 @@ int main( int argc, const char * argv[] )
     std::cout << "\nAdding bytes using 1 thread...\n";
     real64 begin = clock_time();
     uint64_t sum = 0;
-    for( uint32_t i = 0; i < byte_cnt; i++ )
+    for( uint64_t i = 0; i < byte_cnt; i++ )
     {
         sum += bytes[i];
     }
